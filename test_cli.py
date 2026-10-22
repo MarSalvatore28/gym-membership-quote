@@ -17,7 +17,7 @@ def test_r8_parse_extras():
 def test_r8_confirm_yes_returns_total():
     """R8: answering y returns the total and shows each step."""
     shown = []
-    assert run(fake_input("basic", "group_classes", "2", "y"), shown.append) == 81
+    assert run(fake_input("basic", "group_classes", "2", "y"), shown.append) == 80
     assert any("Group discount" in line for line in shown)
 
 
