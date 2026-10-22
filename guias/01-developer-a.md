@@ -1,26 +1,74 @@
-# Guía · Developer A (R1, R2, R3, R7)
+# Guía de Kiara · Developer A (R1, R2, R3 y R7)
 
-Tu parte: el **catálogo** de planes y extras, la **validación** de la selección, el **subtotal** y el **redondeo**.
-Todo se hace en el navegador, sin instalar nada.
+Hola Kiara 👋 Tu parte del proyecto es el **catálogo** del gimnasio (planes y extras con sus precios),
+**validar** que lo que elige el usuario sea correcto, calcular el **subtotal** y **redondear** el total.
 
-## Paso 0 · Entrar al repositorio
+## Antes de empezar: 4 palabras que vas a ver
 
-1. Si no tienes cuenta, créala en https://github.com/signup y pásale tu **usuario** a Marlo.
-2. Cuando Marlo te invite, acepta aquí: https://github.com/MarSalvatore28/gym-membership-quote/invitations
-3. Abre el repo: https://github.com/MarSalvatore28/gym-membership-quote
+| Palabra | Qué significa en este taller |
+|---|---|
+| **Repositorio (repo)** | La carpeta del proyecto en GitHub, compartida por los 4. |
+| **Rama (branch)** | Tu copia personal del proyecto. Trabajas ahí sin tocar lo de los demás. La rama principal se llama `main`. |
+| **Commit** | Guardar un cambio, con un mensaje que dice qué hiciste. Cada commit queda con **tu nombre**, y esa es tu evidencia. |
+| **Pull Request (PR)** | Pedirle al equipo que tu rama se una a `main`. Ahí GitHub corre los tests solo, y sale ✅ o ❌. |
+
+**Lo que vas a hacer:** crear tu rama → subir 2 archivos (2 commits) → abrir 1 Pull Request → tomar capturas.
+No necesitas instalar nada: todo es en el navegador. Tiempo aproximado: 20 minutos.
+
+---
+
+## Paso 0 · Entrar a GitHub
+
+1. Abre el navegador. **En una compu de la U, usa una ventana de incógnito** (Ctrl + Shift + N)
+   para que al final no quede tu cuenta abierta.
+2. Entra a https://github.com/login con tu cuenta **Kcmoranj**.
+3. Abre el repositorio: **https://github.com/MarSalvatore28/gym-membership-quote**
+4. Arriba a la derecha debe verse **tu foto o tu inicial**. Así se nota en las capturas que eres tú.
+
+---
 
 ## Paso 1 · Crear tu rama
 
-1. Arriba a la izquierda hay un botón que dice **main** (con un ícono de rama). Haz clic.
-2. Escribe `feature/developer-a` y haz clic en **Create branch feature/developer-a from main**.
-3. Confirma que el botón ahora dice **feature/developer-a**. Todo lo que subas debe ir a esta rama, **nunca a main**.
+1. En la página del repo, arriba a la izquierda de la lista de archivos, hay un botón que dice **`main`**
+   con un ícono de rama. Haz clic.
+2. En la cajita **"Find or create a branch..."** escribe exactamente:
 
+   ```
+   feature/developer-a
+   ```
 
-## Paso 2 · Subir el código (primer commit)
+3. Abajo aparece **"Create branch feature/developer-a from main"**. Haz clic.
+4. ✅ Revisa que el botón ahora diga **`feature/developer-a`**. **Si dice `main`, no sigas:** vuelve a elegir tu rama.
 
-1. Con tu rama seleccionada, clic en **Add file → Create new file**.
-2. Nombre del archivo: `catalog.py`
-3. Pega este código completo:
+📸 **Captura 1:** la página del repo con el botón mostrando `feature/developer-a` y tu foto arriba a la derecha.
+Guárdala como `kiara-1-rama.png`.
+
+> Para tomar capturas en Windows: **Windows + Shift + S**, seleccionas el área y se copia.
+> Pégala en Paint o Word y guárdala.
+
+---
+
+## ⚠️ Cómo copiar el código sin errores
+
+En Python, **los espacios al inicio de cada línea importan**. Si se mueve un espacio, el código falla.
+
+- **No copies seleccionando con el mouse.** En cada bloque de código de esta guía (abierta en GitHub),
+  pasa el mouse por encima del bloque y aparece un botón **📋 (Copy)** arriba a la derecha. Usa ese.
+- Pega con **Ctrl + V** en el editor de GitHub y **no cambies nada**.
+
+---
+
+## Paso 2 · Subir tu código (commit 1)
+
+1. Confirma que el botón de rama dice **`feature/developer-a`**.
+2. Clic en el botón **Add file** (arriba, junto al botón verde **Code**) → **Create new file**.
+3. En la cajita **"Name your file..."** escribe exactamente:
+
+   ```
+   catalog.py
+   ```
+
+4. Haz clic en el área grande de abajo (el editor) y pega este código con el botón 📋:
 
 ```python
 """Catalog of plans and extras, validation, subtotal and rounding (R1, R2, R3, R7)."""
@@ -63,13 +111,36 @@ def round_half_up(amount):
     return int(exact.quantize(Decimal("1"), rounding=ROUND_HALF_UP))
 ```
 
-4. Clic en **Commit changes...**. Mensaje: `Add plan and extras catalog with validation (R1, R2, R3, R7)`.
-   Elige **Commit directly to the feature/developer-a branch** → **Commit changes**.
+5. Clic en el botón verde **Commit changes...** (arriba a la derecha).
+6. Se abre una ventanita:
+   - En **Commit message** borra lo que haya y escribe:
 
-## Paso 3 · Subir los tests (segundo commit)
+     ```
+     Add plan and extras catalog with validation (R1, R2, R3, R7)
+     ```
 
-1. Otra vez **Add file → Create new file**. Nombre: `test_catalog.py`
-2. Pega:
+   - Abajo debe estar marcada la opción **"Commit directly to the `feature/developer-a` branch"**.
+     Si dice `main`, **cancela** y vuelve al Paso 1.
+   - Clic en **Commit changes**.
+
+📸 **Captura 2:** el archivo `catalog.py` ya subido (se ve su código y arriba tu rama).
+Guárdala como `kiara-2-codigo.png`.
+
+---
+
+## Paso 3 · Subir tus tests (commit 2)
+
+Los tests comprueban que tu código calcula bien. GitHub y Jenkins los corren solos.
+
+1. Vuelve a la página principal del repo (clic en **gym-membership-quote** arriba). Revisa que siga en **`feature/developer-a`**.
+2. **Add file → Create new file**.
+3. Nombre del archivo:
+
+   ```
+   test_catalog.py
+   ```
+
+4. Pega con el botón 📋:
 
 ```python
 """Unit tests for R1, R2, R3 and R7 (Developer A)."""
@@ -119,30 +190,99 @@ def test_r7_round_half_up():
     assert round_half_up(80.4) == 80
 ```
 
-3. **Commit changes...**. Mensaje: `Add unit tests for R1, R2, R3 and R7`. Mismo branch → **Commit changes**.
+5. **Commit changes...** → mensaje:
 
-## Paso 4 · Abrir el Pull Request
+   ```
+   Add unit tests for R1, R2, R3 and R7
+   ```
 
-1. Ve a la pestaña **Pull requests** → **New pull request**.
-2. Deja **base: main** y en **compare** elige **feature/developer-a**.
-3. Clic en **Create pull request**. Título: `Add catalog, validation, subtotal and rounding (R1, R2, R3, R7)`. Clic en **Create pull request** otra vez.
-4. Espera 1–2 minutos. Abajo aparece el check **CI / lint-and-test**:
-   - ✅ verde: todo bien. **Toma captura** (con tu nombre visible).
-   - ❌ rojo: clic en **Details**, toma captura del error y avísale a Marlo.
-5. Pídele a la Repository lead (compañera) que lo revise. Esa persona va a **Files changed → Review changes → Approve → Submit review**,
-   y luego **Merge pull request → Confirm merge** (solo si el check está en verde y Jenkins no está corriendo otro build).
+   → que esté marcada **"Commit directly to the `feature/developer-a` branch"** → **Commit changes**.
 
+📸 **Captura 3:** tus commits. En la página del repo, con tu rama seleccionada, haz clic en el reloj
+**"X Commits"** (a la derecha, encima de la lista de archivos). Deben aparecer tus 2 commits con tu nombre.
+Guárdala como `kiara-3-commits.png`.
 
-## Qué explica tu código (por si te preguntan)
+---
 
-- **R1:** `PLANS` tiene los 3 planes; cualquier otro (como `GOLD`) es inválido.
-- **R2:** un extra desconocido es inválido; `SPA` y `SPECIALIZED_PROGRAM` son *premium* y solo valen con `PREMIUM`.
-- **R3:** subtotal = (precio del plan + precio de los extras) × miembros; los miembros deben ser al menos 1.
-- **R7:** `round_half_up` redondea .5 hacia arriba (`round()` de Python redondea 2.5 a 2, por eso no se usa).
+## Paso 4 · Abrir tu Pull Request
 
-## Tus capturas para el informe
+1. Ve a la pestaña **Pull requests** (arriba) → botón verde **New pull request**.
+   (Si ves un aviso amarillo **"feature/developer-a had recent pushes"** con el botón **Compare & pull request**, puedes usar ese.)
+2. Deja **base: `main`** y en **compare** elige **`feature/developer-a`**.
+3. Debe decir **"Able to merge"** en verde. Clic en **Create pull request**.
+4. Llena:
+   - **Title:**
 
-1. Tu rama creada (botón con `feature/developer-a`).
-2. Tus 2 commits (pestaña **Commits** de tu rama).
-3. Tu PR con el check ✅ verde.
-4. El PR ya mergeado (morado, **Merged**).
+     ```
+     Add catalog, validation, subtotal and rounding (R1, R2, R3, R7)
+     ```
+
+   - **Description** (escríbelo con tus palabras, por ejemplo):
+     > Agrego el catálogo de planes y extras, la validación de la selección, el subtotal y el redondeo, con sus tests.
+5. Clic en **Create pull request**.
+
+---
+
+## Paso 5 · Esperar el check de GitHub Actions
+
+1. Abajo en tu PR aparece **CI / lint-and-test** con un círculo amarillo 🟡 (corriendo). Espera 1 o 2 minutos.
+2. Cuando termine:
+   - ✅ **"All checks have passed"**: listo.
+   - ❌ **"Some checks were not successful"**: mira la sección **"Si sale ❌ rojo"** más abajo.
+
+📸 **Captura 4:** tu PR con **All checks have passed** y tu nombre visible.
+Guárdala como `kiara-4-pr-verde.png`.
+
+3. Avísale a **Gabriela** por el grupo: *"Ya está mi PR, revísalo porfa"*.
+   **No hagas tú el Merge.** Gabriela lo aprueba y lo une cuando Jenkins esté libre.
+4. Cuando Gabriela lo una, tu PR se pone **morado** y dice **Merged**.
+
+📸 **Captura 5:** tu PR en morado con **Merged**. Guárdala como `kiara-5-merged.png`.
+
+Al final, **cierra sesión en GitHub** si estás en una compu de la U.
+
+---
+
+## Si sale ❌ rojo
+
+1. En el PR, al lado del check rojo, haz clic en **Details**.
+2. Lee el error:
+   - Si dice **`IndentationError`** o **`SyntaxError`**, se movió un espacio al pegar.
+   - Si dice **pylint** con un número de línea, hay algo distinto en esa línea.
+3. Para arreglarlo: pestaña **Code** → tu rama → abre el archivo → ícono del **lápiz ✏️** (Edit) →
+   borra todo (**Ctrl + A**, luego **Supr**) → pega otra vez con el botón 📋 →
+   **Commit changes...** con el mensaje `Fix indentation` → a tu rama.
+4. El check vuelve a correr solo. Si sigue en rojo, toma captura del error y pásala al grupo.
+
+---
+
+## Qué hace tu código (léelo, la profe puede preguntarte)
+
+- **`PLANS` y `EXTRAS`** son diccionarios con los precios de la tabla del PDF.
+  `PREMIUM_EXTRAS` son los extras premium: `SPA` y `SPECIALIZED_PROGRAM`.
+- **R1, `is_valid_selection`:** si el plan no está en `PLANS` (por ejemplo `GOLD`), devuelve `False`.
+- **R2, también en `is_valid_selection`:** un extra que no está en `EXTRAS` es inválido, y un extra premium
+  con un plan que no sea `PREMIUM` también es inválido (por ejemplo `BASIC` + `SPA`).
+  Supuesto del equipo: un extra repetido (`SPA, SPA`) es inválido.
+- **R3:** los miembros deben ser un número entero mayor o igual a 1.
+  `subtotal` = (precio del plan + suma de los extras) × miembros.
+  Ejemplo: STANDARD (45) + GROUP_CLASSES (15) + PERSONAL_TRAINING (25) = 85 × 4 = **340**.
+- **R7, `round_half_up`:** redondea .5 hacia arriba. Se usa `Decimal` porque `round()` de Python
+  redondea `2.5` a `2` (redondeo bancario), y el PDF pide "half up", que da `3`.
+- **Tests:** cada función `test_...` prueba un requisito. `assert` significa "esto debe ser verdad":
+  si no lo es, el test falla y sale ❌.
+
+---
+
+## Resumen: tus 5 capturas
+
+| # | Archivo | Qué se ve |
+|---|---|---|
+| 1 | `kiara-1-rama.png` | Tu rama creada |
+| 2 | `kiara-2-codigo.png` | `catalog.py` subido |
+| 3 | `kiara-3-commits.png` | Tus 2 commits con tu nombre |
+| 4 | `kiara-4-pr-verde.png` | PR con ✅ All checks have passed |
+| 5 | `kiara-5-merged.png` | PR morado, Merged |
+
+Mándalas al grupo cuando termines. En **todas** se tiene que ver tu usuario
+(si no se ve, escribe tu nombre encima en Paint antes de mandarla).

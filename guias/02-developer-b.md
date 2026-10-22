@@ -1,27 +1,75 @@
-# Guía · Developer B (R4, R5, R6)
+# Guía de Samuel · Developer B (R4, R5 y R6)
 
-Tu parte: el **descuento grupal**, la **oferta especial** y el **recargo premium**.
-Tus funciones reciben un monto y devuelven un monto, así que no dependes de nadie.
-Todo se hace en el navegador, sin instalar nada.
+Hola Samuel 👋 Tu parte del proyecto son los **descuentos y el recargo**: el descuento por grupo,
+la oferta especial y el recargo premium. Tus funciones reciben un monto y devuelven otro monto,
+así que **no dependes de nadie** y puedes empezar ya.
 
-## Paso 0 · Entrar al repositorio
+## Antes de empezar: 4 palabras que vas a ver
 
-1. Si no tienes cuenta, créala en https://github.com/signup y pásale tu **usuario** a Marlo.
-2. Cuando Marlo te invite, acepta aquí: https://github.com/MarSalvatore28/gym-membership-quote/invitations
-3. Abre el repo: https://github.com/MarSalvatore28/gym-membership-quote
+| Palabra | Qué significa en este taller |
+|---|---|
+| **Repositorio (repo)** | La carpeta del proyecto en GitHub, compartida por los 4. |
+| **Rama (branch)** | Tu copia personal del proyecto. Trabajas ahí sin tocar lo de los demás. La rama principal se llama `main`. |
+| **Commit** | Guardar un cambio, con un mensaje que dice qué hiciste. Cada commit queda con **tu nombre**, y esa es tu evidencia. |
+| **Pull Request (PR)** | Pedirle al equipo que tu rama se una a `main`. Ahí GitHub corre los tests solo, y sale ✅ o ❌. |
+
+**Lo que vas a hacer:** crear tu rama → subir 2 archivos (2 commits) → abrir 1 Pull Request → tomar capturas.
+No necesitas instalar nada: todo es en el navegador. Tiempo aproximado: 20 minutos.
+
+---
+
+## Paso 0 · Entrar a GitHub
+
+1. Abre el navegador. **En una compu de la U, usa una ventana de incógnito** (Ctrl + Shift + N)
+   para que al final no quede tu cuenta abierta.
+2. Entra a https://github.com/login con tu cuenta **SamuelChichande**.
+3. Abre el repositorio: **https://github.com/MarSalvatore28/gym-membership-quote**
+4. Arriba a la derecha debe verse **tu foto o tu inicial**. Así se nota en las capturas que eres tú.
+
+---
 
 ## Paso 1 · Crear tu rama
 
-1. Arriba a la izquierda hay un botón que dice **main** (con un ícono de rama). Haz clic.
-2. Escribe `feature/developer-b` y haz clic en **Create branch feature/developer-b from main**.
-3. Confirma que el botón ahora dice **feature/developer-b**. Todo lo que subas debe ir a esta rama, **nunca a main**.
+1. En la página del repo, arriba a la izquierda de la lista de archivos, hay un botón que dice **`main`**
+   con un ícono de rama. Haz clic.
+2. En la cajita **"Find or create a branch..."** escribe exactamente:
 
+   ```
+   feature/developer-b
+   ```
 
-## Paso 2 · Subir el código (primer commit)
+3. Abajo aparece **"Create branch feature/developer-b from main"**. Haz clic.
+4. ✅ Revisa que el botón ahora diga **`feature/developer-b`**. **Si dice `main`, no sigas:** vuelve a elegir tu rama.
 
-1. Con tu rama seleccionada, clic en **Add file → Create new file**.
-2. Nombre del archivo: `adjustments.py`
-3. Pega este código completo:
+📸 **Captura 1:** la página del repo con el botón mostrando `feature/developer-b` y tu foto arriba a la derecha.
+Guárdala como `samuel-1-rama.png`.
+
+> Para tomar capturas en Windows: **Windows + Shift + S**, seleccionas el área y se copia.
+> Pégala en Paint o Word y guárdala.
+
+---
+
+## ⚠️ Cómo copiar el código sin errores
+
+En Python, **los espacios al inicio de cada línea importan**. Si se mueve un espacio, el código falla.
+
+- **No copies seleccionando con el mouse.** En cada bloque de código de esta guía (abierta en GitHub),
+  pasa el mouse por encima del bloque y aparece un botón **📋 (Copy)** arriba a la derecha. Usa ese.
+- Pega con **Ctrl + V** en el editor de GitHub y **no cambies nada**.
+
+---
+
+## Paso 2 · Subir tu código (commit 1)
+
+1. Confirma que el botón de rama dice **`feature/developer-b`**.
+2. Clic en el botón **Add file** (arriba, junto al botón verde **Code**) → **Create new file**.
+3. En la cajita **"Name your file..."** escribe exactamente:
+
+   ```
+   adjustments.py
+   ```
+
+4. Haz clic en el área grande de abajo (el editor) y pega este código con el botón 📋:
 
 ```python
 """Discounts and surcharge applied to an amount (R4, R5, R6)."""
@@ -53,13 +101,36 @@ def apply_premium_surcharge(amount, has_premium):
     return amount
 ```
 
-4. Clic en **Commit changes...**. Mensaje: `Add group discount, special offer and premium surcharge (R4, R5, R6)`.
-   Elige **Commit directly to the feature/developer-b branch** → **Commit changes**.
+5. Clic en el botón verde **Commit changes...** (arriba a la derecha).
+6. Se abre una ventanita:
+   - En **Commit message** borra lo que haya y escribe:
 
-## Paso 3 · Subir los tests (segundo commit)
+     ```
+     Add group discount, special offer and premium surcharge (R4, R5, R6)
+     ```
 
-1. Otra vez **Add file → Create new file**. Nombre: `test_adjustments.py`
-2. Pega:
+   - Abajo debe estar marcada la opción **"Commit directly to the `feature/developer-b` branch"**.
+     Si dice `main`, **cancela** y vuelve al Paso 1.
+   - Clic en **Commit changes**.
+
+📸 **Captura 2:** el archivo `adjustments.py` ya subido (se ve su código y arriba tu rama).
+Guárdala como `samuel-2-codigo.png`.
+
+---
+
+## Paso 3 · Subir tus tests (commit 2)
+
+Los tests comprueban que tu código calcula bien. GitHub y Jenkins los corren solos.
+
+1. Vuelve a la página principal del repo (clic en **gym-membership-quote** arriba). Revisa que siga en **`feature/developer-b`**.
+2. **Add file → Create new file**.
+3. Nombre del archivo:
+
+   ```
+   test_adjustments.py
+   ```
+
+4. Pega con el botón 📋:
 
 ```python
 """Unit tests for R4, R5 and R6 (Developer B)."""
@@ -106,30 +177,97 @@ def test_r6_premium_surcharge():
     assert apply_premium_surcharge(100, False) == 100
 ```
 
-3. **Commit changes...**. Mensaje: `Add unit tests for R4, R5 and R6`. Mismo branch → **Commit changes**.
+5. **Commit changes...** → mensaje:
 
-## Paso 4 · Abrir el Pull Request
+   ```
+   Add unit tests for R4, R5 and R6
+   ```
 
-1. Ve a la pestaña **Pull requests** → **New pull request**.
-2. Deja **base: main** y en **compare** elige **feature/developer-b**.
-3. Clic en **Create pull request**. Título: `Add group discount, special offer and premium surcharge (R4, R5, R6)`. Clic en **Create pull request** otra vez.
-4. Espera 1–2 minutos. Abajo aparece el check **CI / lint-and-test**:
-   - ✅ verde: todo bien. **Toma captura** (con tu nombre visible).
-   - ❌ rojo: clic en **Details**, toma captura del error y avísale a Marlo.
-5. Pídele a la Repository lead (compañera) que lo revise. Esa persona va a **Files changed → Review changes → Approve → Submit review**,
-   y luego **Merge pull request → Confirm merge** (solo si el check está en verde y Jenkins no está corriendo otro build).
+   → que esté marcada **"Commit directly to the `feature/developer-b` branch"** → **Commit changes**.
 
+📸 **Captura 3:** tus commits. En la página del repo, con tu rama seleccionada, haz clic en el reloj
+**"X Commits"** (a la derecha, encima de la lista de archivos). Deben aparecer tus 2 commits con tu nombre.
+Guárdala como `samuel-3-commits.png`.
 
-## Qué explica tu código (por si te preguntan)
+---
 
-- **R4:** con 2 o más miembros se multiplica por 0.90 (10% de descuento).
-- **R5:** sobre el monto después de R4: si es mayor a 400 se restan 50; si no, si es mayor a 200 se restan 20. Nunca las dos.
-- **R6:** si hay un extra premium, se multiplica por 1.15 (15% de recargo) el monto después de R5.
-- En los tests se usa `pytest.approx` porque las multiplicaciones con decimales pueden dar 89.99999.
+## Paso 4 · Abrir tu Pull Request
 
-## Tus capturas para el informe
+1. Ve a la pestaña **Pull requests** (arriba) → botón verde **New pull request**.
+   (Si ves un aviso amarillo **"feature/developer-b had recent pushes"** con el botón **Compare & pull request**, puedes usar ese.)
+2. Deja **base: `main`** y en **compare** elige **`feature/developer-b`**.
+3. Debe decir **"Able to merge"** en verde. Clic en **Create pull request**.
+4. Llena:
+   - **Title:**
 
-1. Tu rama creada (botón con `feature/developer-b`).
-2. Tus 2 commits (pestaña **Commits** de tu rama).
-3. Tu PR con el check ✅ verde.
-4. El PR ya mergeado (morado, **Merged**).
+     ```
+     Add group discount, special offer and premium surcharge (R4, R5, R6)
+     ```
+
+   - **Description** (escríbelo con tus palabras, por ejemplo):
+     > Agrego el descuento grupal, la oferta especial y el recargo premium, con sus tests.
+5. Clic en **Create pull request**.
+
+---
+
+## Paso 5 · Esperar el check de GitHub Actions
+
+1. Abajo en tu PR aparece **CI / lint-and-test** con un círculo amarillo 🟡 (corriendo). Espera 1 o 2 minutos.
+2. Cuando termine:
+   - ✅ **"All checks have passed"**: listo.
+   - ❌ **"Some checks were not successful"**: mira la sección **"Si sale ❌ rojo"** más abajo.
+
+📸 **Captura 4:** tu PR con **All checks have passed** y tu nombre visible.
+Guárdala como `samuel-4-pr-verde.png`.
+
+3. Avísale a **Gabriela** por el grupo: *"Ya está mi PR, revísalo porfa"*.
+   **No hagas tú el Merge.** Gabriela lo aprueba y lo une cuando Jenkins esté libre.
+4. Cuando Gabriela lo una, tu PR se pone **morado** y dice **Merged**.
+
+📸 **Captura 5:** tu PR en morado con **Merged**. Guárdala como `samuel-5-merged.png`.
+
+Al final, **cierra sesión en GitHub** si estás en una compu de la U.
+
+---
+
+## Si sale ❌ rojo
+
+1. En el PR, al lado del check rojo, haz clic en **Details**.
+2. Lee el error:
+   - Si dice **`IndentationError`** o **`SyntaxError`**, se movió un espacio al pegar.
+   - Si dice **pylint** con un número de línea, hay algo distinto en esa línea.
+3. Para arreglarlo: pestaña **Code** → tu rama → abre el archivo → ícono del **lápiz ✏️** (Edit) →
+   borra todo (**Ctrl + A**, luego **Supr**) → pega otra vez con el botón 📋 →
+   **Commit changes...** con el mensaje `Fix indentation` → a tu rama.
+4. El check vuelve a correr solo. Si sigue en rojo, toma captura del error y pásala al grupo.
+
+---
+
+## Qué hace tu código (léelo, la profe puede preguntarte)
+
+- **R4, `apply_group_discount`:** si hay 2 miembros o más, el monto se multiplica por 0.90 (10% menos).
+  Con 1 miembro se queda igual. Ejemplo: 340 con 4 miembros → **306**.
+- **R5, `apply_special_offer`:** se aplica al monto después de R4. Si es **mayor a 400**, resta 50;
+  si no, y es **mayor a 200**, resta 20. Nunca se restan las dos. Ejemplo: 306 → **286**; 594 → **544**.
+  Ojo: 400 exacto **no** es mayor a 400, así que resta 20 (da 380).
+- **R6, `apply_premium_surcharge`:** si la selección tiene un extra premium, multiplica por 1.15 (15% más)
+  el monto después de R5. Ejemplo: 100 → **115**.
+- Los porcentajes están en constantes (`GROUP_DISCOUNT_RATE`, `PREMIUM_SURCHARGE_RATE`) para no tener
+  "números mágicos" sueltos en el código.
+- **Tests:** cada función `test_...` prueba un requisito. Se usa `pytest.approx` porque al multiplicar
+  decimales la compu puede dar `89.99999999` en vez de `90`, y `approx` acepta esa diferencia mínima.
+
+---
+
+## Resumen: tus 5 capturas
+
+| # | Archivo | Qué se ve |
+|---|---|---|
+| 1 | `samuel-1-rama.png` | Tu rama creada |
+| 2 | `samuel-2-codigo.png` | `adjustments.py` subido |
+| 3 | `samuel-3-commits.png` | Tus 2 commits con tu nombre |
+| 4 | `samuel-4-pr-verde.png` | PR con ✅ All checks have passed |
+| 5 | `samuel-5-merged.png` | PR morado, Merged |
+
+Mándalas al grupo cuando termines. En **todas** se tiene que ver tu usuario
+(si no se ve, escribe tu nombre encima en Paint antes de mandarla).
