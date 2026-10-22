@@ -6,7 +6,7 @@ excepto Marlo, que tiene Jenkins.
 | Rol (según el PDF) | Quién | Guía | Archivos que sube |
 |---|---|---|---|
 | Jenkins lead | Marlo (@MarSalvatore28) | [04-jenkins-lead.md](04-jenkins-lead.md) | `test_examples.py` + Jenkins, ngrok y webhook |
-| Repository lead | Gabriela (@MGabrielaVillon) | [03-repository-lead.md](03-repository-lead.md) | `gym_quote.py`, `cli.py`, `test_cli.py` + revisa los PRs |
+| Repository lead | Gaby (@MGabrielaVillon) | [03-repository-lead.md](03-repository-lead.md) | `gym_quote.py`, `cli.py`, `test_cli.py` + revisa los PRs |
 | Developer A | Kiara (@Kcmoranj) | [01-developer-a.md](01-developer-a.md) | `catalog.py`, `test_catalog.py` (R1, R2, R3, R7) |
 | Developer B | Samuel (@SamuelChichande) | [02-developer-b.md](02-developer-b.md) | `adjustments.py`, `test_adjustments.py` (R4, R5, R6) |
 

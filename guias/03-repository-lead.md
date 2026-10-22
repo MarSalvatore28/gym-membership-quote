@@ -1,39 +1,82 @@
-# Guía · Repository lead (R8 + revisión de PRs + GitHub Actions)
+# Guía de Gaby · Repository lead (revisión de PRs, R8 y GitHub Actions)
 
-Tu parte: **revisar y aprobar** los PRs de Developer A y B, unir todo en `gym_quote.py`, la **línea de comandos** (R8)
-y **romper el build a propósito** en un PR para mostrar GitHub Actions en rojo y en verde.
-Todo se hace en el navegador. No necesitas usar Jenkins (lo maneja Marlo).
+Hola Gaby 👋 Eres la **Repository lead**. Tu parte tiene 3 momentos:
 
-## Paso 0 · Entrar al repositorio
+1. **Revisar y unir** los Pull Requests de Kiara y Samuel (eres la que decide qué entra a `main`).
+2. **Unir todo** en la calculadora final y hacer la **línea de comandos** del programa (R8).
+3. **Romper un test a propósito** para mostrar GitHub Actions en ❌ rojo y luego en ✅ verde.
 
-1. Si no tienes cuenta, créala en https://github.com/signup y pásale tu **usuario** a Marlo.
-2. Cuando Marlo te invite, acepta aquí: https://github.com/MarSalvatore28/gym-membership-quote/invitations
-3. Abre el repo: https://github.com/MarSalvatore28/gym-membership-quote
+No necesitas usar Jenkins: eso lo maneja Marlo en su laptop. Todo lo tuyo es en el navegador.
+
+## Antes de empezar: 4 palabras que vas a ver
+
+| Palabra | Qué significa en este taller |
+|---|---|
+| **Repositorio (repo)** | La carpeta del proyecto en GitHub, compartida por los 4. |
+| **Rama (branch)** | Una copia para trabajar sin tocar lo de los demás. La principal se llama `main`. |
+| **Commit** | Guardar un cambio con un mensaje. Queda con **tu nombre**: es tu evidencia. |
+| **Pull Request (PR)** | Pedir que una rama se una a `main`. GitHub corre los tests solo y sale ✅ o ❌. |
+| **Merge** | Aceptar el PR: el código de la rama entra a `main`. Cada merge hace que **Jenkins** corra los tests. |
+
+> 📸 Para capturas: **Windows + Shift + S**. Siempre con tu foto/usuario visible arriba a la derecha.
+
+---
+
+# Momento 1 · Revisar y unir los PRs de Kiara y Samuel
+
+Abre el repo: **https://github.com/MarSalvatore28/gym-membership-quote** → pestaña **Pull requests**.
+
+Haz esto **con un PR a la vez** (primero el que esté listo):
+
+1. Abre el PR.
+2. Baja hasta el final: el check **CI / lint-and-test** debe decir ✅ **All checks have passed**.
+   Si está en ❌, no lo unas: avísale a quien lo hizo (su guía dice cómo arreglarlo).
+3. Pestaña **Files changed** → mira el código → botón verde **Review changes** (arriba a la derecha) →
+   escribe un comentario corto, por ejemplo `Revisé el código y los tests pasan, aprobado` →
+   marca **Approve** → **Submit review**.
+
+   📸 **Captura:** tu aprobación (sale "MGabrielaVillon approved these changes"). Guárdala como `gaby-1-aprobacion-kiara.png` (o `-samuel`).
+
+4. **Pregúntale a Marlo:** *"¿Jenkins está libre?"*. Cuando diga que sí → vuelve a **Conversation** →
+   **Merge pull request** → **Confirm merge**.
+
+   📸 **Captura:** el PR morado con **Merged**. Guárdala como `gaby-2-merge-kiara.png` (o `-samuel`).
+
+5. Espera a que Marlo te diga que el build de Jenkins terminó **antes de unir el siguiente PR**.
+
+> ⚠️ Nunca unas dos PRs seguidos sin esperar a Jenkins (lo pide el PDF).
+
+---
+
+# Momento 2 · Tu código (cuando los PRs de Kiara y Samuel ya estén unidos)
+
+Tu código usa los archivos de Kiara (`catalog.py`) y Samuel (`adjustments.py`), por eso va después.
+
+## ⚠️ Cómo copiar el código sin errores
+
+En Python **los espacios al inicio de cada línea importan**. Abre esta guía en GitHub y usa el botón **📋 (Copy)**
+que aparece arriba a la derecha de cada bloque de código al pasar el mouse. No selecciones con el mouse.
 
 ## Paso 1 · Crear tu rama
 
-1. Arriba a la izquierda hay un botón que dice **main** (con un ícono de rama). Haz clic.
-2. Escribe `feature/repository-lead` y haz clic en **Create branch feature/repository-lead from main**.
-3. Confirma que el botón ahora dice **feature/repository-lead**. Todo lo que subas debe ir a esta rama, **nunca a main**.
+1. En la página del repo, clic en el botón **`main`** (arriba a la izquierda de la lista de archivos).
+2. Escribe exactamente:
 
+   ```
+   feature/repository-lead
+   ```
 
-> Espera a que los PRs de Developer A y Developer B estén **mergeados** antes de crear tu rama
-> (tu código usa sus archivos).
+3. Clic en **Create branch feature/repository-lead from main**.
+4. ✅ El botón ahora debe decir **`feature/repository-lead`**. Si dice `main`, no sigas.
 
-## Paso 2 · Revisar los PRs de A y B (antes de tu parte)
+## Paso 2 · Editar `gym_quote.py` (commit 1)
 
-Para cada PR (uno a la vez):
+Este archivo ya existe; lo vas a **reemplazar** por la versión que une el trabajo de Kiara y Samuel.
 
-1. **Pull requests** → abre el PR.
-2. Confirma que el check **CI / lint-and-test** está ✅ verde.
-3. **Files changed → Review changes → Approve** → escribe "Looks good" → **Submit review**.
-4. Pregúntale a Marlo si Jenkins está libre → **Merge pull request → Confirm merge**.
-5. **Captura** de tu aprobación y del merge.
-
-## Paso 3 · Unir todo en `gym_quote.py` (editar un archivo existente)
-
-1. En tu rama, abre `gym_quote.py` y clic en el **lápiz** ✏️ (Edit this file).
-2. Borra todo y pega:
+1. Con tu rama seleccionada, haz clic en el archivo **`gym_quote.py`** de la lista.
+2. Clic en el ícono del **lápiz ✏️** (arriba a la derecha del código, "Edit this file").
+3. Clic dentro del editor → **Ctrl + A** (selecciona todo) → **Supr** (borra todo).
+4. Pega con el botón 📋:
 
 ```python
 """Gym Membership Quote: monthly cost of a gym membership."""
@@ -80,11 +123,24 @@ class GymQuote:
         return steps["total"]
 ```
 
-3. **Commit changes...** → mensaje `Combine catalog and adjustments in GymQuote (R7)` → a tu rama.
+5. **Commit changes...** → mensaje:
 
-## Paso 4 · La línea de comandos (R8)
+   ```
+   Combine catalog and adjustments in GymQuote (R7)
+   ```
 
-**Add file → Create new file** → `cli.py`:
+   → marcada **"Commit directly to the `feature/repository-lead` branch"** → **Commit changes**.
+
+## Paso 3 · Crear `cli.py` (commit 2)
+
+1. Vuelve a la página principal del repo (clic en **gym-membership-quote**). Revisa que siga en tu rama.
+2. **Add file → Create new file** → nombre:
+
+   ```
+   cli.py
+   ```
+
+3. Pega con 📋:
 
 ```python
 """Command-line interface for the Gym Membership Quote (R8)."""
@@ -124,9 +180,23 @@ if __name__ == "__main__":
     print(f"Result: {run()}")
 ```
 
-Commit: `Add command-line interface with confirmation (R8)`.
+4. **Commit changes...** → mensaje:
 
-Luego **Add file → Create new file** → `test_cli.py`:
+   ```
+   Add command-line interface with confirmation (R8)
+   ```
+
+   → a tu rama → **Commit changes**.
+
+## Paso 4 · Crear `test_cli.py` (commit 3)
+
+1. **Add file → Create new file** → nombre:
+
+   ```
+   test_cli.py
+   ```
+
+2. Pega con 📋:
 
 ```python
 """Unit tests for R8, the command line."""
@@ -162,40 +232,104 @@ def test_r8_invalid_members_returns_minus_one():
     assert run(fake_input("basic", "", "two"), lambda _line: None) == -1
 ```
 
-Commit: `Add unit tests for the command line (R8)`.
+3. **Commit changes...** → mensaje:
 
-## Paso 5 · Abrir el Pull Request
+   ```
+   Add unit tests for the command line (R8)
+   ```
 
-1. Ve a la pestaña **Pull requests** → **New pull request**.
-2. Deja **base: main** y en **compare** elige **feature/repository-lead**.
-3. Clic en **Create pull request**. Título: `Combine the quote and add the command line (R7, R8)`. Clic en **Create pull request** otra vez.
-4. Espera 1–2 minutos. Abajo aparece el check **CI / lint-and-test**:
-   - ✅ verde: todo bien. **Toma captura** (con tu nombre visible).
-   - ❌ rojo: clic en **Details**, toma captura del error y avísale a Marlo.
-5. Pídele a Marlo que lo revise. Esa persona va a **Files changed → Review changes → Approve → Submit review**,
-   y luego **Merge pull request → Confirm merge** (solo si el check está en verde y Jenkins no está corriendo otro build).
+   → a tu rama → **Commit changes**.
 
+📸 **Captura:** tus 3 commits (en la página del repo, con tu rama, clic en el reloj **"X Commits"**).
+Guárdala como `gaby-3-commits.png`.
 
-## Paso 6 · Romper el build a propósito en un PR (Actions rojo → verde)
+## Paso 5 · Tu Pull Request
 
-Hazlo cuando Marlo ya haya mergeado su `test_examples.py`.
+1. **Pull requests → New pull request** → **base: `main`** ← **compare: `feature/repository-lead`** → **Create pull request**.
+2. **Title:**
 
-1. Crea otra rama: `feature/break-actions`.
-2. Abre `test_cli.py` → lápiz ✏️ → en `test_r8_confirm_yes_returns_total` cambia `== 81` por `== 80`.
-   Commit: `Break a test on purpose to check that Actions fails`.
-3. Abre un PR de `feature/break-actions` a `main`. El check sale **❌ rojo**. **Captura** del ❌ y de **Details** con el error.
-4. En la misma rama vuelve a poner `== 81`. Commit: `Fix the expected value`.
-5. El check vuelve a **✅ verde**. **Captura**. Pídele a Marlo que apruebe y haz Merge.
+   ```
+   Combine the quote and add the command line (R7, R8)
+   ```
 
-## Qué explica tu código (por si te preguntan)
+   **Description** (con tus palabras), por ejemplo:
+   > Uno el catálogo y los descuentos en GymQuote y agrego la línea de comandos que pide plan, extras y miembros, muestra el detalle y pide confirmación.
 
-- `GymQuote.breakdown()` aplica en orden R3 → R4 → R5 → R6 y redondea solo al final (R7). **No hace input ni output**, como pide R8.
-- `cli.py` pregunta plan, extras y miembros, muestra subtotal, cada descuento, el recargo y el total, y pide `y/n`. Con `n` devuelve -1.
-- En `test_cli.py`, `fake_input` reemplaza al teclado para poder probar la consola sin escribir nada.
+3. **Create pull request** → espera el ✅ **All checks have passed**.
 
-## Tus capturas para el informe
+   📸 **Captura:** tu PR en verde. Guárdala como `gaby-4-pr-verde.png`.
 
-1. Tu aprobación y merge de los PRs de A y B.
-2. Tus commits y tu PR en verde.
-3. El PR roto en ❌ y luego arreglado en ✅.
-4. La pestaña **Actions** con las corridas.
+4. Avísale a Marlo: él lo revisa, lo aprueba y lo une (tú no unes tu propio PR).
+
+---
+
+# Momento 3 · Romper el build a propósito (Actions ❌ → ✅)
+
+Hazlo **cuando Marlo te diga que ya unió su `test_examples.py`**.
+
+1. Crea otra rama desde `main`:
+
+   ```
+   feature/break-actions
+   ```
+
+2. Abre **`test_cli.py`** → lápiz ✏️ → busca esta línea:
+
+   ```python
+       assert run(fake_input("basic", "group_classes", "2", "y"), shown.append) == 81
+   ```
+
+   Cambia **solo** el `81` del final por `80`.
+   **Commit changes...** → mensaje `Break a test on purpose to check that Actions fails` → a `feature/break-actions`.
+
+3. Abre un PR de **`feature/break-actions`** a **`main`** con título `Check that Actions detects a failing test`.
+4. Espera: el check sale **❌ Some checks were not successful**.
+
+   📸 **Captura:** el PR con el ❌. Guárdala como `gaby-5-actions-rojo.png`.
+
+   Clic en **Details** → abre el paso **Run tests** → se ve `assert 81 == 80` y `1 failed`.
+
+   📸 **Captura:** el error. Guárdala como `gaby-6-actions-error.png`.
+
+5. Arréglalo: pestaña **Code** → rama `feature/break-actions` → `test_cli.py` → lápiz ✏️ → vuelve a poner `81` →
+   **Commit changes...** → mensaje `Fix the expected value` → a `feature/break-actions`.
+6. El check vuelve a correr solo y sale ✅.
+
+   📸 **Captura:** el PR en verde después del arreglo. Guárdala como `gaby-7-actions-verde.png`.
+
+7. Avísale a Marlo para que lo apruebe y lo una.
+
+Al final, entra a la pestaña **Actions** del repo: se ven todas las corridas (verdes y la roja).
+
+📸 **Captura:** la lista de corridas. Guárdala como `gaby-8-actions-historial.png`.
+
+---
+
+## Qué hace tu código (léelo, la profe puede preguntarte)
+
+- **`GymQuote.breakdown()`** hace el cálculo en el orden del PDF:
+  valida (R1, R2, R3) → subtotal (R3) → descuento grupal (R4) → oferta especial (R5) → recargo premium (R6) →
+  redondea **solo al final** (R7). Si la selección es inválida devuelve `None`, y `total()` devuelve **-1**.
+- La clase **no pide datos ni imprime nada**: R8 exige que el cálculo esté separado de la entrada/salida.
+  Así se puede probar con tests sin escribir en la consola.
+- **`cli.py`** es la línea de comandos: pide plan, extras (separados por comas) y miembros; muestra el subtotal,
+  cada descuento, el recargo y el total; y pregunta `Confirm (y/n)`. Con `n` (o cualquier cosa que no sea `y`) devuelve **-1**.
+  Si los miembros no son un número (por ejemplo `two`), también devuelve -1.
+- En **`test_cli.py`**, `fake_input` reemplaza al teclado: le da al programa respuestas ya escritas
+  (`"basic"`, `"group_classes"`, `"2"`, `"y"`) para probarlo sin que nadie escriba. BASIC + GROUP_CLASSES con 2 miembros:
+  (30 + 15) × 2 = 90 → 10% menos = **81**.
+- **Romper el test a propósito** sirve para demostrar que la integración continua sí detecta errores:
+  GitHub Actions no deja pasar un cambio que rompe los tests.
+
+## Resumen: tus capturas
+
+| Archivo | Qué se ve |
+|---|---|
+| `gaby-1-aprobacion-kiara.png` / `-samuel.png` | Tus aprobaciones de los PRs |
+| `gaby-2-merge-kiara.png` / `-samuel.png` | Los PRs unidos (morado, Merged) |
+| `gaby-3-commits.png` | Tus 3 commits |
+| `gaby-4-pr-verde.png` | Tu PR con ✅ |
+| `gaby-5-actions-rojo.png` | El PR roto con ❌ |
+| `gaby-6-actions-error.png` | El detalle del error en Actions |
+| `gaby-7-actions-verde.png` | El PR arreglado con ✅ |
+| `gaby-8-actions-historial.png` | La pestaña Actions con todas las corridas |
