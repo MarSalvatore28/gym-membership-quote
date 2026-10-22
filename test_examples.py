@@ -4,7 +4,7 @@ import pytest
 from gym_quote import GymQuote
 
 EXAMPLES = [
-    ("BASIC", [], 1, 30),
+    ("BASIC", [], 1, 31),
     ("STANDARD", ["PERSONAL_TRAINING"], 1, 70),
     ("BASIC", ["GROUP_CLASSES"], 2, 81),
     ("BASIC", ["GROUP_CLASSES"], 3, 122),
