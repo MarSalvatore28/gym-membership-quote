@@ -31,3 +31,7 @@ Amounts are floats; only the final total is rounded.
 | `gym_quote.py` | Repository lead | `GymQuote.total() -> int` (no input/output) | R7 |
 | `cli.py` | Repository lead | `main()` asks plan, extras, members and y/n | R8 |
 | `test_examples.py` | Jenkins lead | worked examples table | R9 |
+
+## Guías del equipo
+
+Empiecen por [guias/00-plan-del-equipo.md](guias/00-plan-del-equipo.md).
